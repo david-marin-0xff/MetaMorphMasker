@@ -1,104 +1,126 @@
-🧬 MetaMorphMasker
+\# 🧬 MetaMorphMasker
 
 
 
-Created by david-marin-0xff
+MetaMorphMasker is a \*\*cross-format metadata inspection and editing tool\*\* built with `Python` and `CustomTkinter`.  
 
+It allows users to \*\*view, remove, and edit metadata\*\* from images, audio, and video files through a modern dark-red GUI.
 
 
-MetaMorphMasker is a lightweight Python desktop application for editing and removing metadata from image files (JPEG, PNG, and TIFF).
 
-Built with CustomTkinter, it helps users visualize metadata, remove EXIF tags for privacy, or modify fields interactively.
+---
 
 
 
-⚙️ Features
+\##  Features
 
 
 
-&nbsp;Image metadata viewer — Detects and lists all EXIF tags (camera model, GPS, timestamps, etc.).
+\- 🔍 \*\*Inspect metadata\*\* from multiple file types:
 
+&nbsp; - Images (`.png`, `.jpg`, `.jpeg`, `.tiff`)
 
+&nbsp; - Audio (`.mp3`, `.flac`, `.ogg`, `.wav`)
 
-&nbsp;Edit metadata — Modify or update EXIF fields manually.
+&nbsp; - Video (`.mp4`, `.mkv`, `.mov`, `.avi`)
 
+&nbsp; - Text files (`.txt`)
 
+\- ✏️ \*\*Edit\*\* and \*\*remove\*\* metadata fields
 
-&nbsp;Remove metadata — Strip all metadata to reduce file size and protect privacy.
+\-  \*\*Backup system\*\* — automatically creates safe copies before modifying files
 
+\-  \*\*Smart detection\*\* using `Pillow`, `Mutagen`, and `Hachoir`
 
+\-  \*\*Dark red custom UI\*\* using `CustomTkinter`
 
-&nbsp;Backup system — Automatically creates .bak copies before modifications.
+\-  \*\*Built-in Help page\*\* explaining usage and supported formats
 
+\-  \*\*Portable EXE version\*\* — no Python installation required
 
 
-&nbsp;Custom save location — Choose where backups are stored.
 
+---
 
 
-&nbsp;Help Page — Explains supported formats, usage, and credits.
 
+\##  How It Works
 
 
-&nbsp;Dark red theme — Minimalist and easy on the eyes.
 
+1\. When you select a file, the app:
 
+&nbsp;  - Detects its type based on the extension  
 
-🧰 Tech Stack
+&nbsp;  - Uses different backends:
 
+&nbsp;    - `Pillow` for image metadata (`EXIF`, `tEXt`, etc.)
 
+&nbsp;    - `Mutagen` for audio tags (`ID3`, `FLAC`, `Ogg`)
 
-Python 3.11+
+&nbsp;    - `Hachoir` for video containers (`MP4`, `MKV`, `MOV`)
 
+2\. Metadata is displayed in a scrollable text box.
 
+3\. You can remove or edit tags depending on the file type.
 
-CustomTkinter — Modern GUI
+4\. Backups are automatically created before changes.
 
+5\. The GUI remains responsive and lightweight.
 
 
-Pillow (PIL) — Image processing
 
+---
 
 
-Piexif — EXIF metadata manipulation
 
+\##  Technologies
 
 
-🧑‍💻 How It Works
 
+\- \*\*Python 3.11+\*\*
 
+\- \*\*CustomTkinter\*\* – modern dark GUI
 
-When a user loads an image, MetaMorphMasker:
+\- \*\*Pillow\*\* – image metadata handler
 
+\- \*\*Mutagen\*\* – audio tag parsing/editing
 
+\- \*\*Hachoir\*\* – binary parser for video metadata
 
-Reads EXIF data via piexif.load()
 
 
+---
 
-Displays detected tags in a structured view
 
 
+\## ⚠️ Known Issues (to be debugged in next release)
 
-Allows inline editing or full metadata stripping
 
 
+\-  Audio metadata editing sometimes fails or is cumbersome — needs refinement.  
 
-Creates a backup file before any write operation
+\-  Large image/audio tags like embedded album art (`APIC`) can cause slowdowns or crashes.  
 
+\-  Some rare video formats may not display metadata properly.  
 
+\-  No drag-and-drop support (by design).
 
-Saves a clean or updated version of the image
 
 
+> This is an active work-in-progress project. Debugging and contributions are welcome.
 
-All operations are done locally — no data leaves your machine.
 
 
+---
 
 
 
-&nbsp;Setup
+\##  Installation (Development)
+
+
+
+```bash
 
 git clone https://github.com/david-marin-0xff/MetaMorphMasker.git
 
@@ -108,27 +130,7 @@ python -m venv venv
 
 .\\venv\\Scripts\\activate
 
-pip install customtkinter pillow piexif
+pip install -r requirements.txt
 
 python metamorphmasker.py
-
-
-
-🧾 Supported Formats
-
-
-
-JPEG (.jpg, .jpeg)
-
-
-
-PNG (.png)
-
-
-
-TIFF (.tif, .tiff)
-
-
-
-
 
